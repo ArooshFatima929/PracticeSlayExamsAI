@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PracticeSlayExamsAI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f8ff;
+      color: #172033;
+    }
+    .hero {
+      min-height: 90vh;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4, #22c55e);
+      color: white;
+      padding: 24px;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .nav-button, .primary-button, .secondary-button {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      display: inline-block;
+    }
+    .nav-button, .secondary-button {
+      background: rgba(255,255,255,0.18);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .primary-button {
+      background: white;
+      color: #4f46e5;
+      border: none;
+      cursor: pointer;
+    }
+    .hero-content {
+      max-width: 1100px;
+      margin: 80px auto 0;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .badge {
+      background: rgba(255,255,255,0.2);
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    h1 {
+      font-size: 56px;
+      line-height: 1.05;
+      margin: 20px 0;
+    }
+    .hero-text {
+      font-size: 20px;
+      max-width: 650px;
+    }
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .preview-card {
+      background: white;
+      color: #172033;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.22);
+    }
+    .mini-card {
+      background: #eef2ff;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      font-weight: 700;
+    }
+    .section {
+      max-width: 1100px;
+      margin: 70px auto;
+      padding: 0 24px;
+    }
+    .section h2 {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .feature-card, .create-box, .warning {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 35px rgba(30, 41, 59, 0.08);
+    }
+    .feature-card h3 { color: #4f46e5; }
+    .note { color: #475569; }
+    form { display: grid; gap: 14px; }
+    label {
+      font-weight: 800;
+      margin-top: 8px;
+    }
+    select, textarea, input {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 16px;
+    }
+    .full-button {
+      margin-top: 16px;
+      font-size: 17px;
+      background: #4f46e5;
+      color: white;
+    }
+    .result {
+      margin-top: 24px;
+      background: #ecfeff;
+      border-left: 6px solid #06b6d4;
+      padding: 20px;
+      border-radius: 18px;
+    }
+    .hidden { display: none; }
+    .warning {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #172033;
+      color: white;
+    }
+    @media (max-width: 850px) {
+      .hero-content, .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 40px; }
+      .nav { gap: 12px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">PracticeSlayExamsAI</div>
+      <a href="#create" class="nav-button">Create Practice</a>
+    </nav>
+
+    <section class="hero-content">
+      <div>
+        <p class="badge">Prototype / Beta Version</p>
+        <h1>Turn your notes into flashcards and practice exams.</h1>
+        <p class="hero-text">
+          Upload study material or paste notes, then create revision flashcards,
+          exam-style questions, model answers, and mark schemes.
+        </p>
+        <div class="hero-buttons">
+          <a href="#create" class="primary-button">Start Creating</a>
+          <a href="#features" class="secondary-button">See Features</a>
+        </div>
+      </div>
+
+      <div class="preview-card">
+        <h3>Today’s Revision Set</h3>
+        <div class="mini-card">Flashcards: Key terms and definitions</div>
+        <div class="mini-card">Multiple-choice questions</div>
+        <div class="mini-card">Short and long-answer exam questions</div>
+        <div class="mini-card">Mark scheme and model answers</div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="features" class="section">
+      <h2>What students can create</h2>
+      <div class="grid">
+        <div class="feature-card">
+          <h3>Flashcards</h3>
+          <p>Quick revision cards made from notes to help remember important ideas.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Practice Exams</h3>
+          <p>Full exam-style practice papers based on the subject and level chosen.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Question Types</h3>
+          <p>Multiple-choice, short-answer, long-answer, and challenge questions.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Mark Schemes</h3>
+          <p>Model answers and marking guidance to help students improve.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="create" class="section create-box">
+      <h2>Create your revision practice</h2>
+      <p class="note">
+        This prototype shows how the website will work. AI generation can be connected later.
+      </p>
+
+      <form id="practiceForm">
+        <label for="subject">Subject</label>
+        <select id="subject" required>
+          <option value="">Choose a subject</option>
+          <option>English</option>
+          <option>Maths</option>
+          <option>Science</option>
+          <option>Geography</option>
+          <option>History</option>
+          <option>Computer Science</option>
+          <option>Other</option>
+        </select>
+
+        <label for="level">Level of study</label>
+        <select id="level" required>
+          <option value="">Choose your level</option>
+          <option>Year 7</option>
+          <option>Year 8</option>
+          <option>Year 9</option>
+          <option>GCSE</option>
+          <option>A-Level</option>
+          <option>College</option>
+          <option>University</option>
+        </select>
+
+        <label for="notes">Paste your notes</label>
+        <textarea id="notes" rows="7" placeholder="Paste your study notes here..."></textarea>
+
+        <label for="fileUpload">Or upload a PDF</label>
+        <input id="fileUpload" type="file" accept=".pdf">
+
+        <button type="submit" class="primary-button full-button">Generate Practice</button>
+      </form>
+
+      <div id="result" class="result hidden"></div>
+    </section>
+
+    <section class="section warning">
+      <h2>Important</h2>
+      <p>
+        AI-generated answers should be checked by students or teachers.
+        This app helps with revision and practice, but it does not guarantee grades.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>PracticeSlayExamsAI — Study smarter, practise better.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("practiceForm");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const subject = document.getElementById("subject").value;
+      const level = document.getElementById("level").value;
+      const notes = document.getElementById("notes").value.trim();
+      const file = document.getElementById("fileUpload").files[0];
+
+      if (!subject || !level) {
+        result.classList.remove("hidden");
+        result.innerHTML = "<strong>Please choose a subject and level first.</strong>";
+        return;
+      }
+
+      if (!notes && !file) {
+        result.classList.remove("hidden");
+        result.innerHTML = "<strong>Please paste notes or upload a PDF first.</strong>";
+        return;
+      }
+
+      result.classList.remove("hidden");
+      result.innerHTML =
+        "<h3>Your practice set is ready as a prototype preview.</h3>" +
+        "<p><strong>Subject:</strong> " + subject + "</p>" +
+        "<p><strong>Level:</strong> " + level + "</p>" +
+        "<h4>Example Flashcard</h4>" +
+        "<p><strong>Question:</strong> What is one key idea from your study material?</p>" +
+        "<p><strong>Answer:</strong> The answer would be generated from your notes using AI.</p>" +
+        "<h4>Example Exam Question</h4>" +
+        "<p>Explain one important concept from the notes and support your answer with evidence.</p>" +
+        "<h4>Next step</h4>" +
+        "<p>Connect an AI system later so this button creates real flashcards, exam questions, and mark schemes.</p>";
+    });
+  </script>
+</body>
+</html>
